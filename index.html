@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Senior Full-Stack Project Catalog | 1000+ Complete Blueprints</title>
+  <meta name="description" content="Google L5–L6 senior full-stack project catalog with 1000+ production blueprints. Every project includes User View, Developer Core View, Requirements, APIs & Advanced Tools." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --bg-card: #121826;
+      --bg-card-hover: #1a2234;
+      --border: #1e293b;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.15);
+      --success: #22c55e;
+      --warning: #f59e0b;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+    .header {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(11, 15, 25, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.85rem 1.5rem;
+    }
+    .header-inner {
+      max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1.5rem; flex-wrap: wrap;
+    }
+    .logo { display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      border-radius: 10px; display: grid; place-items: center;
+      font-weight: 700; font-size: 0.85rem; color: white;
+    }
+    .logo-text h1 { font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; }
+    .logo-text p { font-size: 0.7rem; color: var(--text-muted); }
+    .stats { display: flex; gap: 1.75rem; font-size: 0.8rem; }
+    .stat strong { display: block; font-size: 1.1rem; font-weight: 700; color: white; }
+    .stat span { color: var(--text-muted); }
+
+    .controls { max-width: 1400px; margin: 1.5rem auto 0; padding: 0 1.5rem; }
+    .search-row { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }
+    .search-box { flex: 1; min-width: 220px; position: relative; }
+    .search-box input {
+      width: 100%; background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 999px; padding: 0.7rem 1rem 0.7rem 2.6rem;
+      color: var(--text); font-size: 0.9rem; outline: none;
+    }
+    .search-box input:focus { border-color: var(--accent); }
+    .search-box svg {
+      position: absolute; left: 0.9rem; top: 50%; transform: translateY(-50%);
+      color: var(--text-muted); pointer-events: none;
+    }
+    .filters { display: flex; gap: 0.45rem; flex-wrap: wrap; }
+    .filter-btn {
+      background: var(--bg-card); border: 1px solid var(--border);
+      color: var(--text-muted); padding: 0.45rem 0.9rem;
+      border-radius: 999px; font-size: 0.8rem; font-weight: 500;
+      cursor: pointer; transition: all 0.15s; white-space: nowrap;
+    }
+    .filter-btn:hover { border-color: #475569; color: var(--text); }
+    .filter-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
+    .meta-row {
+      margin-top: 1rem; display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 0.5rem;
+      font-size: 0.8rem; color: var(--text-muted);
+    }
+
+    .grid-wrap { max-width: 1400px; margin: 1.25rem auto 3rem; padding: 0 1.5rem; }
+    .grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.1rem;
+    }
+    .card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.25rem;
+      display: flex; flex-direction: column; gap: 0.75rem;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+      cursor: pointer;
+    }
+    .card:hover {
+      background: var(--bg-card-hover); border-color: #334155; transform: translateY(-2px);
+    }
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 0.5rem; }
+    .card-title { font-size: 1rem; font-weight: 600; line-height: 1.35; letter-spacing: -0.01em; }
+    .badge {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.03em;
+      padding: 0.2rem 0.55rem; border-radius: 999px; text-transform: uppercase;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .badge-ai { background: #4c1d95; color: #c4b5fd; }
+    .badge-realtime { background: #164e63; color: #67e8f9; }
+    .badge-fintech { background: #14532d; color: #86efac; }
+    .badge-ecommerce { background: #7c2d12; color: #fdba74; }
+    .badge-social { background: #831843; color: #f9a8d4; }
+    .badge-saas { background: #1e3a8a; color: #93c5fd; }
+    .badge-devtools { background: #374151; color: #d1d5db; }
+    .badge-health { background: #0f766e; color: #5eead4; }
+    .badge-edtech { background: #5b21b6; color: #ddd6fe; }
+    .badge-other { background: #1e293b; color: #94a3b8; }
+    .card-desc {
+      font-size: 0.85rem; color: var(--text-muted);
+      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .tech-list { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .tech {
+      background: #1e293b; color: #cbd5e1; font-size: 0.7rem;
+      padding: 0.2rem 0.5rem; border-radius: 6px; font-weight: 500;
+    }
+    .card-footer {
+      margin-top: auto; padding-top: 0.6rem; border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem;
+    }
+    .level { color: var(--warning); font-weight: 600; }
+    .level::before { content: "★ "; }
+    .card-link { color: var(--text-muted); text-decoration: none; }
+    .card-link:hover { color: var(--accent); }
+    .empty { grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--text-muted); }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(6px); z-index: 200;
+      display: none; align-items: flex-start; justify-content: center;
+      padding: 1.5rem; overflow-y: auto;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 16px; max-width: 780px; width: 100%;
+      margin: 2rem auto; padding: 1.75rem 1.75rem 2rem; position: relative;
+    }
+    .modal-close {
+      position: absolute; top: 1rem; right: 1rem;
+      background: #1e293b; border: none; color: var(--text-muted);
+      width: 32px; height: 32px; border-radius: 8px;
+      font-size: 1.2rem; cursor: pointer; line-height: 1;
+      display: grid; place-items: center;
+    }
+    .modal-close:hover { color: white; background: #334155; }
+    .modal h2 { font-size: 1.4rem; margin-bottom: 0.35rem; padding-right: 2.5rem; line-height: 1.3; }
+    .modal .badge { margin-bottom: 0.75rem; }
+    .modal-meta { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.25rem; }
+    .modal-section { margin-top: 1.4rem; }
+    .modal-section h3 {
+      font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em;
+      color: var(--accent); margin-bottom: 0.5rem; font-weight: 600;
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .modal-section p, .modal-section ul, .modal-section li {
+      font-size: 0.9rem; color: var(--text); line-height: 1.55;
+    }
+    .modal-section ul { padding-left: 1.15rem; margin-top: 0.35rem; }
+    .modal-section li { margin-bottom: 0.35rem; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.4rem; }
+    .tag {
+      background: #1e293b; color: #cbd5e1; font-size: 0.72rem;
+      padding: 0.25rem 0.6rem; border-radius: 6px; font-weight: 500;
+    }
+    .tag.api { background: #172554; color: #93c5fd; }
+    .tag.tool { background: #3b0764; color: #e9d5ff; }
+    .tag.lang { background: #14532d; color: #86efac; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 640px) {
+      .stats { gap: 1rem; }
+      .grid { grid-template-columns: 1fr; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+    footer {
+      text-align: center; padding: 2rem 1.5rem 3rem;
+      color: var(--text-muted); font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <div class="logo-icon">FS</div>
+        <div class="logo-text">
+          <h1>Senior Full-Stack Catalog</h1>
+          <p>L5–L6 Blueprints • User + Developer Views • APIs & Tools</p>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <strong id="stat-projects">1000+</strong>
+          <span>Projects</span>
+        </div>
+        <div class="stat">
+          <strong>Full Spec</strong>
+          <span>User + Dev</span>
+        </div>
+        <div class="stat">
+          <strong>API Ready</strong>
+          <span>Advanced Stack</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="search-row">
+      <div class="search-box">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" id="search" placeholder="Search projects, tech, API, domain..." autocomplete="off" />
+      </div>
+      <div class="filters" id="filters">
+        <button class="filter-btn active" data-cat="all">All</button>
+        <button class="filter-btn" data-cat="AI / ML">AI / ML</button>
+        <button class="filter-btn" data-cat="Real-time">Real-time</button>
+        <button class="filter-btn" data-cat="Fintech">Fintech</button>
+        <button class="filter-btn" data-cat="E-commerce">E-commerce</button>
+        <button class="filter-btn" data-cat="Social">Social</button>
+        <button class="filter-btn" data-cat="Platform / SaaS">Platform / SaaS</button>
+        <button class="filter-btn" data-cat="DevTools">DevTools</button>
+        <button class="filter-btn" data-cat="Healthcare">Healthcare</button>
+        <button class="filter-btn" data-cat="EdTech">EdTech</button>
+      </div>
+    </div>
+    <div class="meta-row">
+      <span id="showing">Every project includes User View • Developer Core • Requirements • APIs • Advanced Tools</span>
+      <span id="count"></span>
+    </div>
+  </div>
+
+  <div class="grid-wrap">
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <div class="modal-overlay" id="modal">
+    <div class="modal">
+      <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer>
+    Senior Full-Stack Project Catalog • 1000+ production-grade blueprints with User View, Developer Core, Requirements, APIs & Advanced Tools<br />
+    Designed for L5–L6 system design, portfolio case studies & real product builds
+  </footer>
+
+  <script>
+    // ========== RICH CORE PROJECTS (detailed blueprints) ==========
+    const CORE_PROJECTS = [
+      {
+        id: 1,
+        title: "Multi-Tenant Real-Time Collaboration Platform",
+        category: "Real-time",
+        level: "L6 System Design",
+        desc: "Google Docs-class multi-user editing with CRDTs, presence, conflict-free merge across documents, whiteboards and code.",
+        tech: ["Next.js 15", "Yjs / CRDT", "WebSocket", "PostgreSQL", "Redis", "tRPC", "Temporal"],
+        userView: [
+          "Open any document and see live cursors + names of teammates",
+          "Type simultaneously — changes appear instantly without conflicts",
+          "Offline editing works; syncs automatically when back online",
+          "Comment threads, version history, and @mentions in real time",
+          "Switch between Doc / Whiteboard / Code modes inside the same workspace"
+        ],
+        developerView: [
+          "Yjs CRDT documents stored in Redis (hot) + PostgreSQL (durable snapshots)",
+          "WebSocket gateway with presence channels and awareness protocol",
+          "Schema-per-tenant or RLS for multi-tenant isolation",
+          "Temporal workflows for background indexing, export jobs, and garbage collection",
+          "Optimistic UI on client with Yjs provider; conflict resolution is automatic"
+        ],
+        requirements: [
+          "Sub-100ms cursor & content propagation under 50 concurrent editors",
+          "Offline-first with automatic conflict-free merge",
+          "Audit log + version history retained for 90 days",
+          "SSO (SAML/OIDC) + granular workspace permissions",
+          "Export to PDF/DOCX/Markdown and public share links"
+        ],
+        apis: ["Yjs WebSocket Provider", "tRPC", "Stripe Billing API", "Auth0 / Clerk", "S3 Presigned URLs"],
+        advanced: ["CRDTs (Yjs)", "Redis Streams", "PostgreSQL RLS", "Temporal", "WebSocket fan-out", "IndexedDB offline"]
+      },
+      {
+        id: 2,
+        title: "AI-Powered Semantic Search & RAG Platform",
+        category: "AI / ML",
+        level: "L6 AI Systems",
+        desc: "Enterprise RAG with hybrid search, multi-modal ingestion, agentic query rewriting and citation-backed answers.",
+        tech: ["Next.js", "Python FastAPI", "pgvector", "LangChain / LlamaIndex", "OpenAI / local LLMs", "Celery", "Redis"],
+        userView: [
+          "Upload PDFs, Notion pages, Slack threads, Confluence — system indexes everything",
+          "Ask natural language questions and get answers with source citations",
+          "Follow-up questions keep context; multi-hop reasoning across documents",
+          "Filter by source, date, department; see confidence scores",
+          "Feedback thumbs-up/down improves future retrieval"
+        ],
+        developerView: [
+          "Ingestion pipeline: parse → chunk → embed → store in pgvector + keyword index",
+          "Hybrid retrieval (dense + BM25) → cross-encoder re-rank → LLM generation",
+          "Agentic loop: query rewrite, tool use, multi-hop retrieval",
+          "Celery workers for heavy embedding & document processing",
+          "Citation extraction and grounding checks to reduce hallucinations"
+        ],
+        requirements: [
+          "Support 10M+ chunks with <300ms p95 retrieval",
+          "Multi-modal: PDF, DOCX, HTML, images (OCR), audio transcripts",
+          "Tenant isolation of indexes and models",
+          "Admin UI for ingestion status, eval sets, and A/B of prompts",
+          "Streaming responses with progressive citations"
+        ],
+        apis: ["OpenAI / Anthropic / local vLLM", "LangChain", "Unstructured.io", "Deepgram / Whisper", "S3 / GCS"],
+        advanced: ["pgvector", "Hybrid search", "Re-rankers", "Agentic RAG", "Celery", "Evaluation harnesses"]
+      },
+      {
+        id: 3,
+        title: "High-Frequency Trading Dashboard & Order Router",
+        category: "Fintech",
+        level: "L6 Low-Latency",
+        desc: "Low-latency market data fan-out, order management, pre-trade risk and execution analytics for institutional desks.",
+        tech: ["React", "WebSocket", "Go", "Kafka", "TimescaleDB", "Redis", "gRPC"],
+        userView: [
+          "Live order book, trades and P&L updating every few milliseconds",
+          "One-click order entry with smart routing across venues",
+          "Real-time risk limits and position heatmaps",
+          "Customizable blotters, charts and alert rules",
+          "Post-trade TCA and execution quality reports"
+        ],
+        developerView: [
+          "Go market-data gateway with binary protocols and zero-copy where possible",
+          "Kafka topics for orders, fills, risk events; Redis for hot positions",
+          "TimescaleDB for historical ticks and analytics",
+          "Pre-trade risk engine runs in-process or via low-latency gRPC",
+          "WebSocket fan-out to React clients with throttling and snapshot + delta"
+        ],
+        requirements: [
+          "Market data to UI < 5–15 ms in co-located setup",
+          "Order ack and risk check under strict latency budgets",
+          "Full audit trail of every order and decision",
+          "Multi-desk / multi-strategy isolation",
+          "Failover and disaster recovery for matching and risk"
+        ],
+        apis: ["Exchange FIX / binary APIs", "Kafka", "gRPC internal", "Redis", "TimescaleDB continuous aggregates"],
+        advanced: ["Go netpoll", "Kafka", "Redis Streams", "TimescaleDB", "WebSocket binary frames", "Lock-free structures"]
+      },
+      {
+        id: 4,
+        title: "Multi-Vendor Marketplace with Dynamic Pricing",
+        category: "E-commerce",
+        level: "L5–L6 Commerce",
+        desc: "Amazon-class marketplace: multi-vendor catalog, AI pricing, inventory sync, fulfillment orchestration and seller analytics.",
+        tech: ["Next.js", "NestJS", "PostgreSQL", "Elasticsearch", "Stripe Connect", "Kafka", "Redis"],
+        userView: [
+          "Buyers browse unified catalog with filters, recommendations and reviews",
+          "Sellers onboard, list products, set inventory and see real-time sales dashboards",
+          "Dynamic prices adjust based on demand, competition and margins",
+          "Order tracking, returns and multi-warehouse fulfillment",
+          "Seller payouts via Stripe Connect with transparent fees"
+        ],
+        developerView: [
+          "Catalog service + Elasticsearch for search; PostgreSQL as source of truth",
+          "Kafka for order events, inventory changes, pricing updates",
+          "Pricing service consumes demand signals and competitor data",
+          "Fulfillment orchestrator routes orders to optimal warehouse",
+          "Stripe Connect for onboarding, charges and automated payouts"
+        ],
+        requirements: [
+          "Support 100k+ SKUs and thousands of concurrent sellers",
+          "Inventory consistency across channels (eventual + strong where needed)",
+          "Fraud checks on orders and seller accounts",
+          "Seller analytics (conversion, returns, fees) near real-time",
+          "Mobile-responsive buyer + seller portals"
+        ],
+        apis: ["Stripe Connect", "Elasticsearch", "Kafka", "Shippo / EasyPost", "Google Maps Distance Matrix"],
+        advanced: ["Event-driven architecture", "CQRS for catalog", "Redis caching", "Stripe Connect Express", "Search ranking"]
+      },
+      {
+        id: 5,
+        title: "Social Graph Platform with Real-Time Feed Ranking",
+        category: "Social",
+        level: "L6 Social Systems",
+        desc: "Instagram/X-class social network: follow graph, personalized ranking, stories, notifications and content moderation.",
+        tech: ["Next.js", "GraphQL", "Neo4j / Postgres", "Redis", "Kafka", "ML ranker", "WebSocket"],
+        userView: [
+          "Personalized home feed ranked by relevance and engagement",
+          "Follow / unfollow, stories that disappear, real-time notifications",
+          "Like, comment, share, and see live view counts",
+          "Explore page with trending and recommended accounts",
+          "Report / block tools and transparent moderation actions"
+        ],
+        developerView: [
+          "Graph store (Neo4j or Postgres recursive CTEs) for follow relationships",
+          "Feed generation: fan-out on write for celebrities, hybrid for others",
+          "Kafka for activity events; Redis for hot timelines and rate limits",
+          "ML ranking service (features + model) called at read time",
+          "Moderation pipeline: rules + ML classifiers + human review queue"
+        ],
+        requirements: [
+          "Feed latency p95 < 200 ms for active users",
+          "Handle viral posts without melting the graph or cache",
+          "Push + in-app notifications with preference controls",
+          "Media processing pipeline (images/video) with CDN",
+          "Abuse detection and appeal workflow"
+        ],
+        apis: ["GraphQL", "Kafka", "Redis", "AWS Rekognition / custom moderation", "FCM / APNs"],
+        advanced: ["Fan-out strategies", "Feature store for ranking", "Kafka Streams", "CDN + signed URLs", "Graph algorithms"]
+      },
+      {
+        id: 6,
+        title: "Multi-Tenant SaaS Project Management (Linear-class)",
+        category: "Platform / SaaS",
+        level: "L5–L6 SaaS",
+        desc: "Issue tracking, roadmaps, cycles and automation with real-time sync, custom workflows and powerful search.",
+        tech: ["Next.js", "tRPC", "PostgreSQL", "Redis", "Elasticsearch", "Temporal", "Yjs"],
+        userView: [
+          "Create issues, assign, set priority, move through custom workflows",
+          "Cycles, roadmaps and views (list, board, timeline) update live",
+          "Keyboard-first UX; command palette for everything",
+          "Automations: when status changes → notify, create sub-issue, etc.",
+          "Full-text + semantic search across issues, docs and comments"
+        ],
+        developerView: [
+          "tRPC + React Query for type-safe API; optimistic updates",
+          "PostgreSQL with RLS for workspace isolation",
+          "Temporal for durable automation workflows",
+          "Elasticsearch for search; optional Yjs for collaborative docs",
+          "Redis for presence, rate limits and cache"
+        ],
+        requirements: [
+          "Real-time sync of issue state across clients",
+          "Custom fields, labels, projects and permission roles",
+          "Audit log of all changes",
+          "API + webhooks for integrations",
+          "Import from Jira / GitHub / CSV"
+        ],
+        apis: ["tRPC", "Temporal", "Elasticsearch", "GitHub / Slack webhooks", "Stripe Billing"],
+        advanced: ["RLS multi-tenancy", "Temporal workflows", "Optimistic concurrency", "Command palette patterns", "Semantic search"]
+      },
+      {
+        id: 7,
+        title: "Collaborative Code Editor with AI Pair Programmer",
+        category: "DevTools",
+        level: "L6 Developer Experience",
+        desc: "VS Code in the browser with real-time multiplayer, containers, AI completions and integrated terminal.",
+        tech: ["React", "Monaco / CodeMirror", "Yjs", "Docker", "WebSocket", "OpenAI", "LSP"],
+        userView: [
+          "Open a workspace, invite teammates, edit the same files live",
+          "AI chat and inline completions that understand the whole repo",
+          "Run code in containers; see terminal and ports",
+          "Git integration: branch, commit, PR from the UI",
+          "Language servers for go-to-definition, diagnostics, etc."
+        ],
+        developerView: [
+          "Monaco + Yjs for collaborative editing of text buffers",
+          "Docker / Firecracker sandboxes per workspace for execution",
+          "LSP proxy over WebSocket for language features",
+          "AI layer: context packing, retrieval of relevant files, streaming completions",
+          "Persistence of workspace state to object storage + metadata DB"
+        ],
+        requirements: [
+          "Support multiple languages and package managers",
+          "Secure isolation of user code (no breakout)",
+          "Low-latency collaboration for 5–10 concurrent editors",
+          "AI context stays within token limits and privacy policy",
+          "Export / download of full workspace"
+        ],
+        apis: ["OpenAI / Anthropic", "Docker API", "GitHub API", "LSP over WebSocket", "S3"],
+        advanced: ["Yjs", "Monaco", "Firecracker / gVisor", "Tree-sitter", "Retrieval-augmented coding"]
+      },
+      {
+        id: 8,
+        title: "Healthcare Appointment & EMR Platform",
+        category: "Healthcare",
+        level: "L5–L6 Regulated",
+        desc: "HIPAA-ready multi-clinic system: scheduling, telehealth, electronic records, billing and patient portal.",
+        tech: ["Next.js", "NestJS", "PostgreSQL", "FHIR", "WebRTC", "Stripe", "Redis"],
+        userView: [
+          "Patients book appointments, join video visits, view records and pay bills",
+          "Providers manage calendar, write structured notes, e-prescribe hooks",
+          "Front-desk sees check-in, wait times and room status",
+          "Secure messaging between patient and care team",
+          "Insurance eligibility and claims status visible where applicable"
+        ],
+        developerView: [
+          "FHIR resources for Patient, Encounter, Observation, etc.",
+          "WebRTC for telehealth with TURN servers and recording consent",
+          "PostgreSQL with encryption at rest; audit logging of all PHI access",
+          "Role-based access (patient, provider, admin, billing)",
+          "Stripe for patient payments; optional clearinghouse integration"
+        ],
+        requirements: [
+          "HIPAA / equivalent compliance: encryption, BAAs, audit logs",
+          "Appointment conflicts and multi-provider calendars",
+          "Video quality and fallback for poor networks",
+          "Patient consent and data export (right of access)",
+          "Integration points for labs, pharmacies, imaging"
+        ],
+        apis: ["FHIR R4", "WebRTC", "Stripe", "Twilio / Daily for video", "Clearinghouse APIs"],
+        advanced: ["FHIR", "BAA & audit trails", "WebRTC SFU", "PHI encryption", "Consent management"]
+      },
+      {
+        id: 9,
+        title: "Real-Time Multiplayer Game Backend + Matchmaking",
+        category: "Real-time",
+        level: "L6 Real-time Systems",
+        desc: "Authoritative game server, tick-based simulation, matchmaking, leaderboards and anti-cheat hooks.",
+        tech: ["Colyseus / custom Go", "WebSocket", "Redis", "PostgreSQL", "Kafka"],
+        userView: [
+          "Quick match or ranked queue; join room and play with low lag",
+          "See other players move smoothly with lag compensation",
+          "Leaderboards, seasons, and progression that persist",
+          "Spectate friends or tournaments",
+          "Report cheaters; see fair play indicators"
+        ],
+        developerView: [
+          "Authoritative server simulates at fixed tick rate; clients send inputs",
+          "Client-side prediction + reconciliation for responsiveness",
+          "Redis for matchmaking queues and presence; Postgres for progression",
+          "Kafka or Redis Streams for analytics and anti-cheat events",
+          "Room lifecycle: create → play → destroy; scale horizontally"
+        ],
+        requirements: [
+          "Tick rate and latency targets defined per game genre",
+          "Deterministic simulation or lockstep where needed",
+          "Anti-cheat: server validation, anomaly detection, replay review",
+          "Horizontal scaling of game servers",
+          "Spectator and replay support"
+        ],
+        apis: ["WebSocket", "Redis", "Kafka", "Steam / platform APIs (optional)", "Analytics pipeline"],
+        advanced: ["Authoritative simulation", "Lag compensation", "Matchmaking algorithms", "Replay systems", "Anti-cheat signals"]
+      },
+      {
+        id: 10,
+        title: "Developer-Facing API Platform with Usage Billing",
+        category: "Platform / SaaS",
+        level: "L6 Platform",
+        desc: "Stripe-like API product: keys, rate limits, webhooks, usage metering, developer portal and docs.",
+        tech: ["Next.js", "Go / Node", "PostgreSQL", "Redis", "ClickHouse", "Stripe"],
+        userView: [
+          "Create API keys, set permissions, rotate secrets",
+          "See live usage, rate-limit headers and error rates in dashboard",
+          "Configure webhooks with delivery logs and retries",
+          "Interactive API docs and sandbox environment",
+          "Usage-based invoices and spend alerts"
+        ],
+        developerView: [
+          "API gateway validates keys, applies rate limits (Redis token bucket)",
+          "Request logs shipped to ClickHouse for analytics",
+          "Webhook worker with exponential backoff and signing",
+          "Metering events aggregated into billing periods",
+          "Stripe for invoicing; customer portal for payment methods"
+        ],
+        requirements: [
+          "Per-key and per-account rate limits with clear headers",
+          "Idempotency keys for mutating endpoints",
+          "Webhook delivery SLA and dead-letter handling",
+          "Sandbox vs live mode isolation",
+          "OpenAPI-generated docs and SDKs"
+        ],
+        apis: ["Stripe Billing", "Redis", "ClickHouse", "OpenAPI", "Webhook signing (HMAC)"],
+        advanced: ["Token-bucket rate limiting", "Usage metering", "Webhook reliability", "ClickHouse analytics", "API versioning"]
+      },
+      {
+        id: 11,
+        title: "AI Interview Coach with Real-Time Feedback",
+        category: "AI / ML",
+        level: "L5 AI Product",
+        desc: "Mock interviews with speech-to-text, LLM scoring, follow-up questions and personalized improvement plans.",
+        tech: ["Next.js", "WebRTC", "Whisper / Deepgram", "LangChain", "PostgreSQL", "Redis"],
+        userView: [
+          "Choose role (SWE, PM, behavioral) and start a live video/audio session",
+          "AI asks questions, listens, and gives structured feedback after each answer",
+          "See scores for clarity, technical depth, structure and communication",
+          "Get a personalized practice plan and progress over time",
+          "Review transcripts and key moments"
+        ],
+        developerView: [
+          "WebRTC or WebSocket audio stream → STT service",
+          "LLM prompt chain: evaluate answer, generate follow-up, score dimensions",
+          "Session state in Redis; durable history in Postgres",
+          "Post-session report generation and skill-gap analysis",
+          "Optional human review queue for quality calibration"
+        ],
+        requirements: [
+          "Low-latency STT and response generation",
+          "Consistent scoring rubric across sessions",
+          "Privacy: no long-term storage of raw audio unless opted in",
+          "Mobile and desktop support",
+          "Exportable progress reports"
+        ],
+        apis: ["Deepgram / Whisper", "OpenAI / Anthropic", "WebRTC", "Stripe (optional subscriptions)"],
+        advanced: ["Streaming STT", "Structured LLM output", "Rubric-based scoring", "Session analytics", "Skill graphs"]
+      },
+      {
+        id: 12,
+        title: "Supply-Chain Visibility & Traceability Platform",
+        category: "Platform / SaaS",
+        level: "L5–L6 Enterprise",
+        desc: "End-to-end shipment tracking, IoT events, supplier risk and carbon accounting with multi-party visibility.",
+        tech: ["Next.js", "NestJS", "PostgreSQL", "Kafka", "TimescaleDB", "Mapbox", "MQTT"],
+        userView: [
+          "Track shipments from factory to door with live map and status",
+          "See supplier scorecards, delays and risk alerts",
+          "Carbon and ESG metrics per shipment or product",
+          "Share selective visibility with partners via secure links",
+          "Exception management: missing scans, temperature breaches"
+        ],
+        developerView: [
+          "Event-driven core: Kafka topics for scan, IoT, status change events",
+          "TimescaleDB for time-series location and sensor data",
+          "MQTT bridge for device telemetry",
+          "Rules engine for alerts and SLA breaches",
+          "Multi-party access control and data sharing agreements"
+        ],
+        requirements: [
+          "Ingest high-volume IoT and scan events",
+          "Near real-time map updates and ETA recalculation",
+          "Audit trail for compliance and disputes",
+          "Integration with ERP / WMS / carriers",
+          "Carbon calculation models and reporting exports"
+        ],
+        apis: ["Kafka", "MQTT", "Mapbox", "Carrier tracking APIs", "ERP connectors"],
+        advanced: ["Event sourcing patterns", "TimescaleDB", "Geospatial indexes", "Rules engine", "Multi-party data sharing"]
+      },
+      {
+        id: 13,
+        title: "Personalized Learning Platform with Adaptive Paths",
+        category: "EdTech",
+        level: "L5 EdTech",
+        desc: "LMS with knowledge tracing, adaptive sequencing, video + interactive content and instructor analytics.",
+        tech: ["Next.js", "NestJS", "PostgreSQL", "Redis", "Video CDN", "Bayesian KT"],
+        userView: [
+          "Students see a personalized learning path that adapts to performance",
+          "Watch videos, complete quizzes, interact with simulations",
+          "Instructors create courses, see mastery heatmaps and intervention lists",
+          "Live classrooms with polls and breakout support",
+          "Certificates and skill badges on completion"
+        ],
+        developerView: [
+          "Knowledge tracing model (Bayesian or neural) updates mastery per skill",
+          "Recommendation engine selects next content based on mastery + goals",
+          "Video served via CDN with progress tracking",
+          "Assessment engine with item bank and adaptive difficulty",
+          "Cohort and instructor analytics dashboards"
+        ],
+        requirements: [
+          "Accurate mastery estimation and explainable recommendations",
+          "Support for SCORM / xAPI content where needed",
+          "Accessibility (WCAG) and mobile learning",
+          "Parent / admin reporting",
+          "Offline download of selected modules"
+        ],
+        apis: ["Video CDN (Cloudflare / Mux)", "xAPI / LRS (optional)", "WebRTC for live class", "Stripe for courses"],
+        advanced: ["Knowledge tracing", "Adaptive sequencing", "Learning analytics", "Item response theory", "CDN + DRM"]
+      },
+      {
+        id: 14,
+        title: "Internal Developer Platform (IDP) & Self-Service Portal",
+        category: "DevTools",
+        level: "L6 Platform Engineering",
+        desc: "Backstage-class portal: service catalog, software templates, scorecards and paved-road infrastructure.",
+        tech: ["Backstage / custom", "Kubernetes", "Terraform", "ArgoCD", "PostgreSQL", "GraphQL"],
+        userView: [
+          "Discover services, owners, docs and APIs in one catalog",
+          "Create new service from golden-path templates in minutes",
+          "See scorecards (reliability, security, ownership) for your services",
+          "Self-serve environments, databases and secrets with guardrails",
+          "View DORA metrics and deployment history"
+        ],
+        developerView: [
+          "Software catalog stored in Postgres; GraphQL API for UI and plugins",
+          "Template engine renders scaffolds and triggers CI/CD",
+          "Terraform / Crossplane for infrastructure provisioning",
+          "ArgoCD or Flux for GitOps deployments",
+          "Scorecard rules evaluated on schedule or on events"
+        ],
+        requirements: [
+          "Single source of truth for ownership and metadata",
+          "Policy-as-code for what can be provisioned",
+          "Integration with existing CI, observability and incident tools",
+          "Plugin model for extending the portal",
+          "Audit of who created what and when"
+        ],
+        apis: ["Kubernetes API", "Terraform / OpenTofu", "ArgoCD", "GitHub / GitLab", "Backstage plugin API"],
+        advanced: ["GitOps", "Policy-as-code (OPA)", "Software catalog", "DORA metrics", "Golden paths"]
+      },
+      {
+        id: 15,
+        title: "Real-Time Analytics & Experimentation Platform",
+        category: "Platform / SaaS",
+        level: "L6 Data Platform",
+        desc: "Event ingestion, feature flags, A/B testing and real-time dashboards with statistical rigor.",
+        tech: ["Next.js", "Go", "ClickHouse", "Kafka", "Redis", "StatsEngine"],
+        userView: [
+          "Define metrics and funnels; see them update in near real time",
+          "Create experiments, assign traffic, and watch results with confidence intervals",
+          "Feature flags with targeting rules and gradual rollouts",
+          "Cohort analysis and retention curves",
+          "Share live dashboards with stakeholders"
+        ],
+        developerView: [
+          "High-throughput event pipeline: SDK → Kafka → ClickHouse",
+          "Experiment assignment service with sticky bucketing",
+          "Sequential testing or frequentist/Bayesian stats engine",
+          "Feature flag evaluation at edge or in-process SDKs",
+          "Materialized views and pre-aggregations for dashboard speed"
+        ],
+        requirements: [
+          "Ingest millions of events per minute with low loss",
+          "Correct experiment assignment and no peeking bias",
+          "Privacy controls and data retention policies",
+          "SDK support for web, mobile and server",
+          "Export to data warehouse"
+        ],
+        apis: ["Kafka", "ClickHouse", "Feature flag SDKs", "Stats libraries", "Warehouse connectors"],
+        advanced: ["ClickHouse", "Sequential testing", "Sticky assignment", "Edge evaluation", "Event pipelines"]
+      },
+      {
+        id: 16,
+        title: "Distributed Notification Hub",
+        category: "Real-time",
+        level: "L6 Messaging",
+        desc: "Multi-channel notification system: email, push, SMS, in-app, with preferences, templates and delivery tracking.",
+        tech: ["Node / Go", "Kafka", "Redis", "PostgreSQL", "SendGrid / FCM", "Twilio"],
+        userView: [
+          "Receive timely notifications on preferred channels",
+          "Manage preference center: which events, which channels, quiet hours",
+          "See in-app notification center with read/unread",
+          "Deep links open the right screen in the app",
+          "Unsubscribe and preference changes take effect immediately"
+        ],
+        developerView: [
+          "Event bus (Kafka) receives notification requests from product services",
+          "Template engine renders content per channel and locale",
+          "Preference and suppression checks before send",
+          "Channel adapters (email, push, SMS) with retries and webhooks",
+          "Delivery and engagement events written back for analytics"
+        ],
+        requirements: [
+          "High throughput with ordered delivery where required",
+          "Respect user preferences and legal opt-out",
+          "Template versioning and preview",
+          "Delivery receipts and bounce handling",
+          "Multi-tenant isolation of templates and quotas"
+        ],
+        apis: ["Kafka", "SendGrid / SES", "FCM / APNs", "Twilio", "Webhook callbacks"],
+        advanced: ["Template engines", "Preference center design", "Retry / DLQ patterns", "Multi-channel orchestration", "Engagement analytics"]
+      },
+      {
+        id: 17,
+        title: "Serverless Feature Store",
+        category: "AI / ML",
+        level: "L6 ML Infra",
+        desc: "Online + offline feature store with point-in-time correctness, low-latency serving and training set generation.",
+        tech: ["Python", "Feast / custom", "Redis", "BigQuery / S3", "Kafka", "FastAPI"],
+        userView: [
+          "Data scientists define entities and feature views in code or UI",
+          "Training jobs get point-in-time correct historical features",
+          "Online models fetch features in single-digit ms",
+          "Monitor feature freshness, drift and null rates",
+          "Share features across teams with clear ownership"
+        ],
+        developerView: [
+          "Offline store (warehouse / lake) materializes historical features",
+          "Online store (Redis / Dynamo) serves latest values for inference",
+          "Point-in-time joins prevent leakage in training sets",
+          "Streaming ingestion from Kafka for near-real-time features",
+          "Registry of feature definitions and metadata"
+        ],
+        requirements: [
+          "Point-in-time correctness for training",
+          "Online serving latency SLOs",
+          "Feature versioning and backfills",
+          "Access control and lineage",
+          "Drift and data quality monitoring"
+        ],
+        apis: ["Feast / custom Feature Store API", "Redis", "Kafka", "Warehouse APIs", "FastAPI serving"],
+        advanced: ["Point-in-time joins", "Online/offline consistency", "Feature drift detection", "Streaming features", "ML metadata"]
+      },
+      {
+        id: 18,
+        title: "Edge-Native Identity Broker",
+        category: "Fintech",
+        level: "L6 Security",
+        desc: "Auth0/Okta-class identity platform with OIDC/OAuth2, MFA, passwordless and edge session management.",
+        tech: ["Go / Rust", "PostgreSQL", "Redis", "WebAuthn", "JWT", "Cloudflare Workers"],
+        userView: [
+          "Sign in with social, enterprise SSO, or passwordless (email/magic link/WebAuthn)",
+          "MFA when risk is high; remember device options",
+          "Manage sessions, revoke devices, see login history",
+          "Apps receive standard OIDC tokens",
+          "Admin configures connections, policies and branding"
+        ],
+        developerView: [
+          "OIDC/OAuth2 authorization server with PKCE and proper token lifetimes",
+          "WebAuthn for passkeys; TOTP / push for MFA",
+          "Risk signals (IP, device, velocity) influence step-up auth",
+          "Edge workers for session validation and token introspection near users",
+          "Audit logs of every auth decision for compliance"
+        ],
+        requirements: [
+          "Standards-compliant OIDC and OAuth2",
+          "High availability and low latency globally",
+          "Breached password and anomaly detection",
+          "SCIM for enterprise user provisioning",
+          "Compliance-ready audit and retention"
+        ],
+        apis: ["OIDC / OAuth2", "WebAuthn", "SCIM", "JWT", "Risk scoring APIs"],
+        advanced: ["Passkeys", "Edge session validation", "Risk-based MFA", "Token binding", "Distributed rate limiting"]
+      },
+      {
+        id: 19,
+        title: "Video Streaming & Live Events Platform",
+        category: "Platform / SaaS",
+        level: "L6 Media",
+        desc: "On-demand + live video with adaptive bitrate, chat, moderation and creator monetization.",
+        tech: ["Next.js", "WebRTC / HLS", "FFmpeg", "S3 / CDN", "Redis", "Stripe"],
+        userView: [
+          "Watch VOD or join live events with adaptive quality",
+          "Live chat, reactions and moderated Q&A",
+          "Creators go live, see concurrent viewers and tips",
+          "Subscriptions, pay-per-view and digital products",
+          "Recordings available after the event"
+        ],
+        developerView: [
+          "Ingest (RTMP/WebRTC) → transcoding (FFmpeg / media services) → HLS/DASH to CDN",
+          "Chat service on WebSocket/Redis with moderation filters",
+          "Monetization via Stripe (subscriptions, tips, PPV)",
+          "Analytics pipeline for watch time, drop-off and engagement",
+          "DRM or signed URLs for premium content"
+        ],
+        requirements: [
+          "Low-latency live option and standard ABR for scale",
+          "Global CDN delivery and origin shielding",
+          "Chat moderation and rate limits",
+          "Creator dashboard with revenue and audience metrics",
+          "Compliance for recordings and age gates where needed"
+        ],
+        apis: ["Mux / AWS MediaLive", "Cloudflare Stream", "Stripe", "WebRTC", "CDN signed URLs"],
+        advanced: ["ABR streaming", "Low-latency HLS / WebRTC", "Chat moderation", "Creator monetization", "Media pipelines"]
+      },
+      {
+        id: 20,
+        title: "Open Banking Aggregation Layer",
+        category: "Fintech",
+        level: "L6 Fintech",
+        desc: "Plaid-like aggregation of bank accounts, transaction categorization and financial insights APIs.",
+        tech: ["Node / Go", "PostgreSQL", "Redis", "Open Banking APIs", "Kafka", "ML models"],
+        userView: [
+          "Connect bank accounts via secure bank flows or credentials (where allowed)",
+          "See balances, transactions, and automatic categorization",
+          "Apps consume clean APIs for balances, transactions, identity",
+          "Consent management: what data, for how long, revoke anytime",
+          "Insights: cash flow, recurring bills, net worth"
+        ],
+        developerView: [
+          "Connector layer per bank/region (Open Banking, screen scraping where legal)",
+          "Webhook-driven updates; polling fallback",
+          "Enrichment ML for merchant and category",
+          "Consent and access token lifecycle management",
+          "Developer sandbox with synthetic data"
+        ],
+        requirements: [
+          "Regulatory compliance (PSD2, open banking rules per region)",
+          "Strong customer authentication support",
+          "High reliability of connections and refresh",
+          "Clear data retention and deletion",
+          "Developer portal with keys, logs and webhooks"
+        ],
+        apis: ["Open Banking / PSD2 APIs", "Kafka", "Stripe Identity (optional)", "Webhook delivery"],
+        advanced: ["Consent management", "Transaction enrichment", "Bank connector framework", "Sandbox synthesis", "Regulatory audit logs"]
+      },
+      {
+        id: 21,
+        title: "Multiplayer Whiteboard & Design Canvas",
+        category: "Real-time",
+        level: "L5–L6 Collaboration",
+        desc: "Figma-class infinite canvas with shapes, sticky notes, real-time cursors and version history.",
+        tech: ["React", "Canvas / WebGL", "Yjs", "WebSocket", "PostgreSQL", "S3"],
+        userView: [
+          "Infinite canvas: frames, shapes, text, sticky notes, connectors",
+          "Live cursors and multiplayer selection",
+          "Components, variants and shared libraries",
+          "Comments, version history and export to PNG/PDF/SVG",
+          "Presentation mode and prototyping links"
+        ],
+        developerView: [
+          "Scene graph + Yjs for collaborative state of objects",
+          "Canvas or WebGL renderer with viewport culling",
+          "Presence and awareness via WebSocket",
+          "Snapshots and history stored in object storage + metadata DB",
+          "Permission model: view / edit / admin per file"
+        ],
+        requirements: [
+          "Smooth performance with hundreds of objects and multiple users",
+          "Offline support and conflict-free merge",
+          "Precise selection, alignment and snapping tools",
+          "Export fidelity",
+          "Sharing and embed options"
+        ],
+        apis: ["Yjs", "WebSocket", "S3", "Auth providers"],
+        advanced: ["CRDT scene graphs", "Canvas performance", "Presence protocols", "Component systems", "Version history"]
+      },
+      {
+        id: 22,
+        title: "Job Marketplace with Skill Matching",
+        category: "Platform / SaaS",
+        level: "L5 Marketplace",
+        desc: "Upwork-class platform: job posts, proposals, skill graphs, escrow payments and dispute resolution.",
+        tech: ["Next.js", "NestJS", "PostgreSQL", "Elasticsearch", "Stripe Connect", "Redis"],
+        userView: [
+          "Clients post jobs; freelancers submit proposals with rates and portfolios",
+          "Skill-based search and AI-assisted matching",
+          "Milestone payments held in escrow until approved",
+          "Messaging, contracts and time tracking",
+          "Reviews, dispute center and resolution workflow"
+        ],
+        developerView: [
+          "Job and profile search via Elasticsearch with skill boosting",
+          "Matching service uses skill graphs and past success signals",
+          "Stripe Connect for escrow-like flows and payouts",
+          "Messaging service with real-time delivery",
+          "Dispute state machine with evidence upload"
+        ],
+        requirements: [
+          "Trust & safety: verification, fraud signals, content moderation",
+          "Clear payment and fee structure",
+          "Mobile-friendly applications and messaging",
+          "Tax forms and compliance for payouts",
+          "Analytics for both sides of the marketplace"
+        ],
+        apis: ["Stripe Connect", "Elasticsearch", "Identity verification APIs", "Email / push"],
+        advanced: ["Two-sided marketplace design", "Skill graphs", "Escrow patterns", "Dispute workflows", "Ranking algorithms"]
+      },
+      {
+        id: 23,
+        title: "Observability & Distributed Tracing Platform",
+        category: "DevTools",
+        level: "L6 Observability",
+        desc: "OpenTelemetry-compatible traces, metrics, logs and service maps with alerting and SLOs.",
+        tech: ["Go", "ClickHouse", "Kafka", "Prometheus", "Grafana", "Next.js"],
+        userView: [
+          "Search traces by service, latency, error, attributes",
+          "Service map showing dependencies and error rates",
+          "Dashboards for RED/USE metrics and custom queries",
+          "SLO definitions with error budget burn alerts",
+          "Log correlation with trace IDs"
+        ],
+        developerView: [
+          "OTel collectors receive traces/metrics/logs; route to Kafka then ClickHouse",
+          "High-cardinality support via careful schema and sampling",
+          "Trace search and flame graphs built on ClickHouse",
+          "Alerting engine evaluates rules and routes to PagerDuty/Slack",
+          "Retention and downsampling policies"
+        ],
+        requirements: [
+          "Ingest high volume without dropping critical data",
+          "Sub-second query for recent traces",
+          "Privacy: PII scrubbing and access control",
+          "OpenTelemetry compatibility",
+          "Cost controls via sampling and retention"
+        ],
+        apis: ["OpenTelemetry", "Prometheus remote write", "Kafka", "ClickHouse", "PagerDuty / Slack"],
+        advanced: ["High-cardinality metrics", "Trace sampling strategies", "SLO / error budgets", "Service maps", "ClickHouse observability schemas"]
+      },
+      {
+        id: 24,
+        title: "E-commerce Recommendation Engine",
+        category: "E-commerce",
+        level: "L5–L6 ML",
+        desc: "Real-time product recommendations using collaborative filtering, content-based and session-based models.",
+        tech: ["Python", "Redis", "Kafka", "PostgreSQL", "Feature Store", "FastAPI"],
+        userView: [
+          "Homepage, PDP and cart show relevant recommendations",
+          "“Because you viewed / bought” explanations",
+          "Email and push campaigns use the same recommendation API",
+          "A/B tests of different models visible in analytics",
+          "Cold-start handled for new users and new items"
+        ],
+        developerView: [
+          "Offline training of CF / content / sequential models",
+          "Feature store for user and item features",
+          "Online inference service with Redis cache of candidates",
+          "Event stream (views, carts, purchases) updates features and models",
+          "Experiment framework for model and ranking changes"
+        ],
+        requirements: [
+          "Latency budget for recommendation API",
+          "Diversity and business rules (margin, stock) in ranking",
+          "Explainability for some surfaces",
+          "Monitoring of CTR, conversion and model drift",
+          "Privacy-safe training (no leakage of sensitive data)"
+        ],
+        apis: ["Feature Store", "Kafka", "Redis", "FastAPI", "Experimentation platform"],
+        advanced: ["Collaborative filtering", "Session-based models", "Two-tower retrieval", "Re-ranking", "Online learning signals"]
+      },
+      {
+        id: 25,
+        title: "Telemedicine + Remote Patient Monitoring",
+        category: "Healthcare",
+        level: "L5–L6 HealthTech",
+        desc: "Video consults, device data ingestion, care plans and clinician dashboards with alerts.",
+        tech: ["Next.js", "WebRTC", "NestJS", "TimescaleDB", "FHIR", "MQTT"],
+        userView: [
+          "Patients join video visits, upload vitals, follow care plans",
+          "Wearables and home devices send data automatically",
+          "Clinicians see dashboards of patients needing attention",
+          "Alerts for out-of-range readings with escalation",
+          "Secure messaging and shared care plans"
+        ],
+        developerView: [
+          "WebRTC for visits; FHIR for clinical data model",
+          "MQTT / device cloud for continuous telemetry into TimescaleDB",
+          "Rules and ML for anomaly detection and prioritization",
+          "Care team workflows and assignment",
+          "Audit and consent for all PHI access"
+        ],
+        requirements: [
+          "HIPAA-level security and BAAs with vendors",
+          "Reliable device connectivity and backfill",
+          "Clinician notification without alert fatigue",
+          "Integration with existing EHR where possible",
+          "Patient engagement and adherence tracking"
+        ],
+        apis: ["FHIR", "WebRTC", "MQTT / device platforms", "Twilio / video vendors", "EHR connectors"],
+        advanced: ["Remote monitoring pipelines", "Clinical alerting", "FHIR", "Time-series for vitals", "Care pathway engines"]
+      },
+      {
+        id: 26,
+        title: "Code Review & AI PR Assistant",
+        category: "DevTools",
+        level: "L5–L6 DX",
+        desc: "GitHub-integrated bot that reviews PRs, suggests changes, checks style and answers questions about the diff.",
+        tech: ["Node / Python", "GitHub Apps", "LLM", "Tree-sitter", "Redis"],
+        userView: [
+          "Open a PR and get automated review comments within minutes",
+          "Ask the bot questions about the diff in natural language",
+          "Style, security and test-impact suggestions inline",
+          "Summary of risk areas and missing tests",
+          "Optional auto-fix for approved trivial changes"
+        ],
+        developerView: [
+          "GitHub App receives PR webhooks; fetches diff and context",
+          "Tree-sitter / AST for structural understanding",
+          "LLM prompts with retrieved code and style guides",
+          "Comment posting via GitHub API; rate-limit aware",
+          "Feedback loop: which suggestions were accepted"
+        ],
+        requirements: [
+          "Respect repo permissions and secrets",
+          "Low false-positive rate on critical findings",
+          "Support monorepos and multiple languages",
+          "Configurable rules and severity",
+          "Privacy: code stays within agreed boundaries"
+        ],
+        apis: ["GitHub Apps / Checks API", "OpenAI / Anthropic", "Tree-sitter", "Redis queues"],
+        advanced: ["AST-aware review", "Retrieval of related code", "PR risk scoring", "Feedback loops", "Multi-language support"]
+      },
+      {
+        id: 27,
+        title: "Fleet Management & Telematics Platform",
+        category: "Platform / SaaS",
+        level: "L5–L6 IoT",
+        desc: "Vehicle tracking, geofencing, driver behavior, maintenance scheduling and route optimization.",
+        tech: ["Next.js", "NestJS", "TimescaleDB", "Kafka", "Mapbox", "MQTT"],
+        userView: [
+          "Live map of fleet with status and ETAs",
+          "Geofence alerts when vehicles enter/leave zones",
+          "Driver scorecards (harsh braking, speeding, idle time)",
+          "Maintenance schedules and work orders",
+          "Route planning and what-if optimization"
+        ],
+        developerView: [
+          "MQTT / cellular devices send GPS and CAN data",
+          "Kafka → TimescaleDB for high-volume telematics",
+          "Geofence engine and event detection",
+          "Driver behavior models and scoring",
+          "Optimization service for routes (OR-Tools or custom)"
+        ],
+        requirements: [
+          "Handle large fleets and frequent location updates",
+          "Offline buffering on devices",
+          "Privacy controls for driver location",
+          "Integration with fuel cards and maintenance systems",
+          "Mobile apps for drivers and managers"
+        ],
+        apis: ["MQTT", "Mapbox / Google Maps", "OR-Tools", "Kafka", "Device manufacturer APIs"],
+        advanced: ["Telematics pipelines", "Geofencing at scale", "Route optimization", "Driver scoring", "TimescaleDB"]
+      },
+      {
+        id: 28,
+        title: "Creator Economy Monetization Suite",
+        category: "Social",
+        level: "L5 Creator",
+        desc: "Subscriptions, tips, digital products, membership tiers and payouts for independent creators.",
+        tech: ["Next.js", "Stripe", "PostgreSQL", "Redis", "S3"],
+        userView: [
+          "Fans subscribe, tip, or buy digital products from creators",
+          "Membership tiers unlock exclusive posts, Discord, or content",
+          "Creators see revenue, audience growth and churn",
+          "Payouts on a clear schedule with tax forms",
+          "Affiliate links and promotions"
+        ],
+        developerView: [
+          "Stripe Billing for subscriptions and one-time payments",
+          "Access control based on active entitlements",
+          "Content gating and delivery (S3 + signed URLs)",
+          "Payout and tax reporting flows",
+          "Analytics on conversion and retention"
+        ],
+        requirements: [
+          "Reliable subscription lifecycle (upgrade, downgrade, cancel)",
+          "Fraud and chargeback handling",
+          "Creator onboarding and KYC where required",
+          "Multi-currency support",
+          "Clear fee structure and statements"
+        ],
+        apis: ["Stripe Connect / Billing", "Tax APIs", "Email", "Discord / community APIs"],
+        advanced: ["Subscription state machines", "Entitlement systems", "Creator payouts", "Content gating", "Churn analytics"]
+      },
+      {
+        id: 29,
+        title: "Knowledge Base & Internal Wiki with AI Search",
+        category: "Platform / SaaS",
+        level: "L5 Knowledge",
+        desc: "Notion/Confluence-class wiki with blocks, permissions and semantic search across company knowledge.",
+        tech: ["Next.js", "PostgreSQL", "pgvector", "Redis", "S3", "Yjs"],
+        userView: [
+          "Create nested pages with rich blocks, tables and embeds",
+          "Real-time collaboration and comments",
+          "Ask questions and get answers grounded in internal docs with citations",
+          "Granular permissions per space and page",
+          "Version history and restore"
+        ],
+        developerView: [
+          "Block-based document model; optional Yjs for live collab",
+          "pgvector for embeddings of page content",
+          "Hybrid search + RAG for AI answers",
+          "ACL evaluation on every read/write",
+          "Background indexing and re-embedding on change"
+        ],
+        requirements: [
+          "Fast search across large knowledge bases",
+          "Correct permission enforcement (no leakage)",
+          "Import from existing tools",
+          "API for programmatic access",
+          "Audit of who viewed/edited sensitive pages"
+        ],
+        apis: ["pgvector", "OpenAI embeddings", "S3", "Auth providers", "Import connectors"],
+        advanced: ["Block editors", "Semantic search", "RAG over internal knowledge", "Fine-grained ACL", "Live collaboration"]
+      },
+      {
+        id: 30,
+        title: "Fraud Detection & Transaction Monitoring",
+        category: "Fintech",
+        level: "L6 Risk",
+        desc: "Real-time scoring of payments and account activity with rules + ML models and case management.",
+        tech: ["Python", "Kafka", "Redis", "PostgreSQL", "Feature Store", "FastAPI"],
+        userView: [
+          "Risky transactions are held or challenged in real time",
+          "Customers receive clear step-up or decline reasons where appropriate",
+          "Analysts work cases in a queue with full context and tools",
+          "Rules and models can be tuned and A/B tested",
+          "Dashboards of fraud rates, false positives and losses"
+        ],
+        developerView: [
+          "Streaming features computed from Kafka event stream",
+          "Online model serving + rules engine for real-time decision",
+          "Case management system with assignment and SLAs",
+          "Feedback loop: confirmed fraud/labels improve models",
+          "Feature store for consistent training and serving"
+        ],
+        requirements: [
+          "Decision latency within payment authorization window",
+          "Explainability for declines and regulatory needs",
+          "Low false-positive rate to protect conversion",
+          "Audit of every decision",
+          "Model monitoring and drift alerts"
+        ],
+        apis: ["Kafka", "Feature Store", "Model serving", "Case management API", "Payment processor webhooks"],
+        advanced: ["Streaming features", "Real-time ML", "Rules + ML hybrid", "Case management", "Model monitoring"]
+      }
+    ];
+
+    // ========== GENERATOR FOR REMAINING PROJECTS (rich data) ==========
+    const CATEGORIES = ["AI / ML", "Real-time", "Fintech", "E-commerce", "Social", "Platform / SaaS", "DevTools", "Healthcare", "EdTech"];
+    const LEVELS = ["L5 System Design", "L5–L6 Architecture", "L6 Production", "L5 Product", "L6 Scale", "L5–L6 Domain"];
+
+    const TECH_POOLS = {
+      "AI / ML": ["Next.js", "Python FastAPI", "LangChain", "pgvector", "Redis", "Celery", "OpenAI", "vLLM", "Kafka", "Feature Store"],
+      "Real-time": ["Next.js", "WebSocket", "Yjs", "Redis", "PostgreSQL", "Kafka", "Go", "Colyseus", "Temporal"],
+      "Fintech": ["Next.js", "Go", "Node", "PostgreSQL", "Redis", "Kafka", "Stripe", "TimescaleDB", "ClickHouse", "gRPC"],
+      "E-commerce": ["Next.js", "NestJS", "PostgreSQL", "Elasticsearch", "Redis", "Stripe", "Kafka", "S3", "Temporal"],
+      "Social": ["Next.js", "GraphQL", "PostgreSQL", "Redis", "Kafka", "Neo4j", "WebSocket", "ML ranker"],
+      "Platform / SaaS": ["Next.js", "tRPC", "PostgreSQL", "Redis", "Temporal", "Elasticsearch", "S3", "ClickHouse"],
+      "DevTools": ["React", "Go", "Kubernetes", "PostgreSQL", "Redis", "Docker", "OpenTelemetry", "Terraform"],
+      "Healthcare": ["Next.js", "NestJS", "PostgreSQL", "FHIR", "WebRTC", "Redis", "S3", "TimescaleDB"],
+      "EdTech": ["Next.js", "NestJS", "PostgreSQL", "Redis", "Video CDN", "WebRTC", "pgvector"]
+    };
+
+    const API_POOLS = {
+      "AI / ML": ["OpenAI / Anthropic", "LangChain", "HuggingFace", "Whisper / Deepgram", "vLLM", "Feature Store API"],
+      "Real-time": ["WebSocket", "Yjs Provider", "Redis Pub/Sub", "Kafka", "FCM / APNs", "Temporal"],
+      "Fintech": ["Stripe / Stripe Connect", "Plaid-like", "Open Banking", "Kafka", "gRPC internal", "Card issuing APIs"],
+      "E-commerce": ["Stripe Connect", "Elasticsearch", "Shippo / EasyPost", "Kafka", "Google Maps", "Inventory APIs"],
+      "Social": ["GraphQL", "FCM / APNs", "Kafka", "Moderation APIs", "Media processing"],
+      "Platform / SaaS": ["tRPC / REST", "Stripe Billing", "Temporal", "Elasticsearch", "Webhook delivery", "Auth0 / Clerk"],
+      "DevTools": ["Kubernetes API", "GitHub Apps", "OpenTelemetry", "Terraform", "Docker API", "Prometheus"],
+      "Healthcare": ["FHIR R4", "WebRTC", "HL7", "Stripe", "EHR connectors", "Device / MQTT"],
+      "EdTech": ["Video CDN", "WebRTC", "xAPI", "Stripe", "SSO / LMS APIs"]
+    };
+
+    const ADVANCED_POOLS = {
+      "AI / ML": ["RAG / Agentic workflows", "pgvector", "Hybrid search", "Feature stores", "Model monitoring", "Streaming inference"],
+      "Real-time": ["CRDTs", "Presence protocols", "Lag compensation", "WebSocket fan-out", "Redis Streams", "Authoritative simulation"],
+      "Fintech": ["Token-bucket limits", "Usage metering", "Risk engines", "Event sourcing", "PCI considerations", "Reconciliation"],
+      "E-commerce": ["Event-driven orders", "Search ranking", "Inventory consistency", "Dynamic pricing", "Fulfillment orchestration"],
+      "Social": ["Fan-out strategies", "Feed ranking", "Graph algorithms", "Moderation pipelines", "Media pipelines"],
+      "Platform / SaaS": ["Multi-tenant RLS", "Temporal workflows", "Usage-based billing", "Feature flags", "Audit logs"],
+      "DevTools": ["GitOps", "Policy-as-code", "Observability", "Sandboxed execution", "Scorecards", "Golden paths"],
+      "Healthcare": ["FHIR modeling", "PHI encryption", "Audit trails", "Consent management", "Clinical alerting"],
+      "EdTech": ["Knowledge tracing", "Adaptive paths", "Learning analytics", "Live classrooms", "Assessment engines"]
+    };
+
+    const TITLE_TEMPLATES = {
+      "AI / ML": [
+        "AI-Powered {domain} Assistant",
+        "Semantic {domain} Search & RAG Engine",
+        "Generative {domain} Content Platform",
+        "ML-Based {domain} Recommender System",
+        "Agentic {domain} Workflow Orchestrator",
+        "Multimodal {domain} Analysis Suite",
+        "LLM Fine-Tuning & Serving Hub for {domain}",
+        "Predictive {domain} Analytics Platform"
+      ],
+      "Real-time": [
+        "Real-Time {domain} Collaboration Suite",
+        "Live {domain} Streaming & Presence Backend",
+        "Multiplayer {domain} Engine",
+        "Presence & Sync Layer for {domain}",
+        "Event-Driven {domain} Notification System",
+        "Low-Latency {domain} Feed Service"
+      ],
+      "Fintech": [
+        "{domain} Payments Orchestration Layer",
+        "Digital {domain} Wallet & Ledger Platform",
+        "{domain} Risk & Fraud Detection Engine",
+        "Open Banking {domain} Aggregation API",
+        "Usage-Based {domain} Billing Engine",
+        "{domain} Treasury & Liquidity Tool"
+      ],
+      "E-commerce": [
+        "Multi-Vendor {domain} Marketplace",
+        "{domain} Inventory Intelligence Platform",
+        "Personalized {domain} Shopping Experience",
+        "{domain} Fulfillment Orchestrator",
+        "Dynamic Pricing Engine for {domain}",
+        "{domain} Returns & Reverse Logistics System"
+      ],
+      "Social": [
+        "{domain} Social Graph & Feed Network",
+        "Creator {domain} Monetization Suite",
+        "Community {domain} Engagement Platform",
+        "Live {domain} Audio/Video Rooms",
+        "{domain} Content Moderation System",
+        "Personalized {domain} Discovery Feed"
+      ],
+      "Platform / SaaS": [
+        "Multi-Tenant {domain} Workspace Platform",
+        "{domain} Project & Workflow System",
+        "Self-Serve {domain} Admin & Control Plane",
+        "{domain} Analytics & Insights Hub",
+        "API-First {domain} Product Suite",
+        "{domain} Automation & Integration Layer"
+      ],
+      "DevTools": [
+        "{domain} Developer Portal & Catalog",
+        "Internal {domain} Platform (IDP)",
+        "{domain} Observability & Tracing Stack",
+        "CI/CD {domain} Orchestration System",
+        "Feature Flag & {domain} Experimentation",
+        "Secure {domain} Code Execution Sandbox"
+      ],
+      "Healthcare": [
+        "{domain} Clinical Workflow Platform",
+        "Remote {domain} Patient Monitoring System",
+        "{domain} Telehealth & Visit Suite",
+        "EMR-Integrated {domain} System",
+        "{domain} Care Coordination Hub",
+        "Patient-Facing {domain} Portal"
+      ],
+      "EdTech": [
+        "Adaptive {domain} Learning Platform",
+        "{domain} Assessment & Analytics Engine",
+        "Virtual {domain} Classroom Suite",
+        "Skill-Based {domain} Learning Path Engine",
+        "{domain} Content Authoring Tool",
+        "Student {domain} Success Dashboard"
+      ]
+    };
+
+    const DOMAINS = [
+      "Supply Chain", "Healthcare", "Fintech", "E-commerce", "Education", "Logistics",
+      "Media", "Gaming", "HR", "Legal", "Insurance", "Retail", "Travel", "Energy",
+      "Manufacturing", "Agriculture", "Real Estate", "Telecom", "Government", "Nonprofit",
+      "Cybersecurity", "Climate", "Mobility", "Food Delivery", "Beauty", "Fitness"
+    ];
+
+    function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+    function pickN(arr, n) {
+      const shuffled = [...arr].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, Math.min(n, arr.length));
+    }
+
+    function generateExtraProjects(count) {
+      const extras = [];
+      for (let i = 0; i < count; i++) {
+        const cat = pick(CATEGORIES);
+        const domain = pick(DOMAINS);
+        const templates = TITLE_TEMPLATES[cat] || TITLE_TEMPLATES["Platform / SaaS"];
+        let title = pick(templates).replace(/{domain}/g, domain);
+        if (Math.random() > 0.75) title += " (Enterprise)";
+        const techPool = TECH_POOLS[cat] || TECH_POOLS["Platform / SaaS"];
+        const tech = pickN(techPool, 5 + Math.floor(Math.random() * 3));
+        const level = pick(LEVELS);
+        const apis = pickN(API_POOLS[cat] || API_POOLS["Platform / SaaS"], 4 + Math.floor(Math.random() * 2));
+        const advanced = pickN(ADVANCED_POOLS[cat] || ADVANCED_POOLS["Platform / SaaS"], 4 + Math.floor(Math.random() * 2));
+
+        const desc = `Production-grade ${cat} system for ${domain.toLowerCase()} with multi-tenant architecture, high reliability, observability and Google-level operational excellence.`;
+
+        const userView = [
+          `End users interact with a polished ${domain.toLowerCase()} experience tailored to their role`,
+          `Real-time updates, clear status and actionable insights throughout the journey`,
+          `Mobile and desktop responsive interfaces with accessibility in mind`,
+          `Notifications, preferences and self-service controls for common tasks`,
+          `Trust indicators: transparency, auditability and support pathways`
+        ];
+
+        const developerView = [
+          `Service-oriented or modular monolith architecture with clear bounded contexts for ${domain.toLowerCase()}`,
+          `Event-driven flows where appropriate (Kafka / queues) for decoupling and scale`,
+          `Multi-tenant data isolation (RLS or schema-per-tenant) and strong authn/authz`,
+          `Observability: structured logs, metrics, traces and alerting from day one`,
+          `CI/CD, feature flags and progressive delivery for safe releases`
+        ];
+
+        const requirements = [
+          `Support realistic scale for ${domain.toLowerCase()} workloads with defined latency and availability SLOs`,
+          `Security: authentication, authorization, encryption and audit logging`,
+          `Multi-tenant isolation and configurable roles/permissions`,
+          `APIs (REST/tRPC/GraphQL) plus webhooks for integrations`,
+          `Admin and operator tooling for support, configuration and monitoring`
+        ];
+
+        extras.push({
+          id: 1000 + i,
+          title,
+          category: cat,
+          level,
+          desc,
+          tech,
+          userView,
+          developerView,
+          requirements,
+          apis,
+          advanced
+        });
+      }
+      return extras;
+    }
+
+    // 30 detailed core + 970 generated = 1000
+    const ALL_PROJECTS = [...CORE_PROJECTS, ...generateExtraProjects(970)];
+
+    // ========== UI LOGIC ==========
+    let currentCat = "all";
+    let currentQuery = "";
+
+    const grid = document.getElementById("grid");
+    const searchInput = document.getElementById("search");
+    const countEl = document.getElementById("count");
+    const showingEl = document.getElementById("showing");
+    const modal = document.getElementById("modal");
+    const modalBody = document.getElementById("modal-body");
+    const modalClose = document.getElementById("modal-close");
+
+    function badgeClass(cat) {
+      const map = {
+        "AI / ML": "badge-ai",
+        "Real-time": "badge-realtime",
+        "Fintech": "badge-fintech",
+        "E-commerce": "badge-ecommerce",
+        "Social": "badge-social",
+        "Platform / SaaS": "badge-saas",
+        "DevTools": "badge-devtools",
+        "Healthcare": "badge-health",
+        "EdTech": "badge-edtech"
+      };
+      return map[cat] || "badge-other";
+    }
+
+    function filterProjects() {
+      return ALL_PROJECTS.filter(p => {
+        const matchCat = currentCat === "all" || p.category === currentCat;
+        const q = currentQuery.toLowerCase().trim();
+        if (!q) return matchCat;
+        const hay = (
+          p.title + " " + p.desc + " " + p.tech.join(" ") + " " +
+          p.category + " " + p.level + " " +
+          (p.apis || []).join(" ") + " " + (p.advanced || []).join(" ")
+        ).toLowerCase();
+        return matchCat && hay.includes(q);
+      });
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;");
+    }
+
+    function render() {
+      const list = filterProjects();
+
+      countEl.textContent = `${list.length.toLocaleString()} projects showing`;
+      showingEl.textContent = currentCat === "all" && !currentQuery
+        ? "All 1000 projects • User View • Developer Core • Requirements • APIs • Advanced Tools"
+        : `Filtered results`;
+
+      if (list.length === 0) {
+        grid.innerHTML = `<div class="empty">No projects match your filters. Try a different search or category.</div>`;
+        return;
+      }
+
+      // Show ALL matching projects (up to full 1000)
+      grid.innerHTML = list.map(p => `
+        <article class="card" data-id="${p.id}">
+          <div class="card-header">
+            <h2 class="card-title">${escapeHtml(p.title)}</h2>
+            <span class="badge ${badgeClass(p.category)}">${escapeHtml(p.category)}</span>
+          </div>
+          <p class="card-desc">${escapeHtml(p.desc)}</p>
+          <div class="tech-list">
+            ${p.tech.slice(0, 6).map(t => `<span class="tech">${escapeHtml(t)}</span>`).join("")}
+          </div>
+          <div class="card-footer">
+            <span class="level">${escapeHtml(p.level)}</span>
+            <a href="#" class="card-link" data-id="${p.id}">Full blueprint →</a>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    // Event delegation — works for all 1000 cards without attaching 1000 listeners
+    grid.addEventListener("click", (e) => {
+      const card = e.target.closest(".card, .card-link");
+      if (!card) return;
+      e.preventDefault();
+      const id = +card.dataset.id || +card.closest(".card")?.dataset.id;
+      if (id) openModal(id);
+    });
+
+    function openModal(id) {
+      const p = ALL_PROJECTS.find(x => x.id === id);
+      if (!p) return;
+
+      const list = (items) => items && items.length
+        ? `<ul>${items.map(i => `<li>${escapeHtml(i)}</li>`).join("")}</ul>`
+        : "<p>—</p>";
+
+      const tags = (items, cls) => items && items.length
+        ? `<div class="tag-row">${items.map(t => `<span class="tag ${cls}">${escapeHtml(t)}</span>`).join("")}</div>`
+        : "";
+
+      modalBody.innerHTML = `
+        <span class="badge ${badgeClass(p.category)}">${escapeHtml(p.category)}</span>
+        <h2>${escapeHtml(p.title)}</h2>
+        <p class="modal-meta">${escapeHtml(p.level)} · Production-grade senior blueprint</p>
+
+        <div class="modal-section">
+          <h3>Overview</h3>
+          <p>${escapeHtml(p.desc)}</p>
+        </div>
+
+        <div class="modal-section">
+          <h3>👤 User View</h3>
+          ${list(p.userView)}
+        </div>
+
+        <div class="modal-section">
+          <h3>⚙️ Developer Core View</h3>
+          ${list(p.developerView)}
+        </div>
+
+        <div class="modal-section">
+          <h3>📋 What is Needed (Requirements)</h3>
+          ${list(p.requirements)}
+        </div>
+
+        <div class="modal-section">
+          <h3>🔌 APIs & Integrations</h3>
+          ${tags(p.apis, "api")}
+        </div>
+
+        <div class="modal-section">
+          <h3>🛠️ Advanced Tools & Languages</h3>
+          ${tags(p.advanced, "tool")}
+          <div class="tag-row" style="margin-top:0.5rem;">
+            ${p.tech.map(t => `<span class="tag lang">${escapeHtml(t)}</span>`).join("")}
+          </div>
+        </div>
+
+        <div class="modal-section">
+          <h3>Why this is senior-level</h3>
+          <ul>
+            <li>Multi-tenant / high-scale considerations built in</li>
+            <li>Real production patterns: consistency, observability, security</li>
+            <li>Suitable for system design interviews or portfolio case studies</li>
+            <li>Combines full-stack + infrastructure + domain complexity</li>
+            <li>Explicit User View + Developer View so both product and eng are covered</li>
+          </ul>
+        </div>
+      `;
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    modalClose.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
+
+    document.getElementById("filters").addEventListener("click", (e) => {
+      const btn = e.target.closest(".filter-btn");
+      if (!btn) return;
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      currentCat = btn.dataset.cat;
+      render();
+    });
+
+    let searchTimeout;
+    searchInput.addEventListener("input", () => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        currentQuery = searchInput.value;
+        render();
+      }, 180);
+    });
+
+    document.getElementById("stat-projects").textContent = ALL_PROJECTS.length.toLocaleString() + "+";
+    render();
+  </script>
+</body>
+</html>
